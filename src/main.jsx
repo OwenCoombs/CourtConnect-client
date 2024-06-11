@@ -20,6 +20,7 @@ import Login from './Login';
 import { ContextProvider } from './context';  // Import from context.jsx
 import ProfilePage from './profile';
 import ProtectedRoute from './protected';
+import PlayNow from './playnow';
 
 function Layout() {
   return (
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
           {
             path: '/profilepage',
             element: <ProfilePage />,
+          },
+          {
+            path: '/Playnow',
+            element: <playNow />,
           },
         ],
       },
