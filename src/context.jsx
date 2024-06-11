@@ -6,9 +6,11 @@ export const Context = createContext();
 export const ContextProvider = ({ children }) => {
   const currentToken = JSON.parse(localStorage.getItem('accessToken'));
   const currentProfile = JSON.parse(localStorage.getItem('profile'));
+  const savePlayNow = JSON.parse(localStorage.getItem('playnow'));
 
   const [accessToken, setAccessToken] = useState(currentToken || '');
   const [profile, setProfile] = useState(currentProfile || {});
+  const [playnow, setPlayNow] = useState(savePlayNow || {});
 
   useEffect(() => {
     localStorage.setItem('accessToken', JSON.stringify(accessToken));
@@ -18,11 +20,17 @@ export const ContextProvider = ({ children }) => {
     localStorage.setItem('profile', JSON.stringify(profile));
   }, [profile]);
 
+
+  useEffect(() => {
+    localStorage.setItem('playnow', JSON.stringify(playnow));
+  }, [playnow]);
+
   const auth = { accessToken, setAccessToken };
   const liveProfile = { profile, setProfile };
+  const livePlayNow = {playnow, setPlayNow};
 
   return (
-    <Context.Provider value={{ auth, liveProfile }}>
+    <Context.Provider value={{ auth, liveProfile, livePlayNow }}>
       {children}
     </Context.Provider>
   );

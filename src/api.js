@@ -81,3 +81,61 @@ export const createImage = ({ auth, image }) => {
     },
   });
 };
+
+
+export const getCourts = ({ auth }) => {
+  return axios({
+      method: 'get',
+      url: `${baseUrl}/get-court`,
+      headers: {
+          Authorization: `Bearer ${auth.accessToken}`
+      }
+  }).then(response => {
+      console.log('Courts: ', response.data); // Add logging
+      return response.data; // Return the data directly
+  }).catch(error => {
+      console.log('ERROR: ', error);
+      throw error; // Re-throw the error to be caught by the caller
+  });
+}
+
+
+export const getActiveUsers = async ({ auth }) => {
+  try {
+    const response = await axios.get(`${baseUrl}/get-active-users`, {
+      headers: {
+        Authorization: `Bearer ${auth.accessToken}`
+      }
+    });
+
+    console.log('Active Users: ', response.data);
+    return response.data; // Return the active users data
+  } catch (error) {
+    console.log('ERROR: ', error);
+    throw error; // Re-throw the error to be caught by the caller
+  }
+};
+
+export const setActiveUser = async ({ auth, courtId, setActive }) => {
+  const url = 'http://127.0.0.1:8000/set-active-user';
+  const data = {
+      court_id: courtId,
+      active: setActive  // Ensure the active status is sent
+  };
+  console.log('Request data:', data);
+
+  try {
+      const response = await axios.post(url, data, {
+          headers: {
+              Authorization: `Bearer ${auth.accessToken}`
+          }
+      });
+      console.log('Response from setActiveUser:', response.data);
+      return response.data;
+  } catch (error) {
+      console.error('Error from setActiveUser:', error.response ? error.response.data : error.message);
+      throw error;
+  }
+};
+
+

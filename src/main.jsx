@@ -59,8 +59,8 @@ const router = createBrowserRouter([
             element: <ProfilePage />,
           },
           {
-            path: '/Playnow',
-            element: <playNow />,
+            path: '/playnow',
+            element: <PlayNow />,
           },
         ],
       },

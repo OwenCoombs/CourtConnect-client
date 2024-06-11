@@ -284,3 +284,144 @@ body {
 
 
 
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.search-button {
+  background-color: var(--primary-color);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-left: -50px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  outline: none;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+.play-now-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Search container styling */
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #0056b3;
+}
+
+/* Courts section styling */
+.courts-section {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.courts-container {
+  list-style: none;
+  padding: 0;
+}
+
+.court-item {
+  margin-bottom: 20px;
+}
+
+.court-info {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+}
+
+.court-info:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.court-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.court-location {
+  font-style: italic;
+  color: #888;
+  margin-top: 5px;
+}
+
+.court-amenities {
+  color: #666;
+  margin-top: 10px;
+}
+
+.court-action-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.court-action-button.play {
+  background-color: #28a745;
+  color: white;
+}
+
+.court-action-button.play:hover {
+  background-color: #218838;
+}
+
+.court-action-button.leave {
+  background-color: #dc3545;
+  color: white;
+}
+
+.court-action-button.leave:hover {
+  background-color: #c82333;
+}

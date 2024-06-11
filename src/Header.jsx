@@ -8,7 +8,7 @@ function Header() {
       <Link className="nav-link" to='/'>Home</Link>
       <Link className="nav-link" to='/login'>Login</Link>
       <Link className="nav-link" to='/profilepage'>Profile</Link>
-      <Link className="nav-link" to='/Playnow'>Play Now</Link>
+      <Link className="nav-link" to='/Playnow'>Find Games</Link>
     </div>
   );
 }
