@@ -327,6 +327,13 @@ body {
   padding: 20px;
 }
 
+/* Container styling */
+.play-now-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 /* Search container styling */
 .search-container {
   display: flex;
@@ -424,4 +431,11 @@ body {
 
 .court-action-button.leave:hover {
   background-color: #c82333;
+}
+
+/* Active users styling */
+.active-users {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #555;
 }
