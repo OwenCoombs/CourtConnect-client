@@ -4,7 +4,7 @@ import { createContext, useEffect, useState } from 'react';
 export const Context = createContext();
 
 export const ContextProvider = ({ children }) => {
-  const currentToken = JSON.parse(localStorage.getItem('accessToken'));
+  const currentToken = localStorage.getItem('accessToken');
   const currentProfile = JSON.parse(localStorage.getItem('profile'));
   const savePlayNow = JSON.parse(localStorage.getItem('playnow'));
 
@@ -13,7 +13,9 @@ export const ContextProvider = ({ children }) => {
   const [playnow, setPlayNow] = useState(savePlayNow || {});
 
   useEffect(() => {
-    localStorage.setItem('accessToken', JSON.stringify(accessToken));
+    if (currentToken) {
+      localStorage.setItem('accessToken', accessToken);
+    }
   }, [accessToken]);
 
   useEffect(() => {
