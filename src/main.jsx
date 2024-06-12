@@ -20,7 +20,7 @@ import Login from './Login';
 import { ContextProvider } from './context';  // Import from context.jsx
 import ProfilePage from './profile';
 import ProtectedRoute from './protected';
-import PlayNow from './playnow';
+import PlayNow from './Play';
 
 function Layout() {
   return (
