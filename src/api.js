@@ -25,7 +25,7 @@ export const fetchUser = async ({ token, liveProfile, auth }) => {
   console.log("DIS DE AUTH", token);
   
   try {
-    const response = await axios.get(`${baseUrl}/profile/`, {
+    const response = await axios.get(`${baseUrl}/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -117,7 +117,7 @@ export const getActiveUsers = async ({ auth }) => {
 };
 
 export const setActiveUser = async ({ auth, courtId, setActive }) => {
-  const url = 'http://127.0.0.1:8000/set-active-user';
+  const url = 'https://courtconnect-server.fly.dev/set-active-user';
   const data = {
       court_id: courtId,
       active: setActive  // Ensure the active status is sent

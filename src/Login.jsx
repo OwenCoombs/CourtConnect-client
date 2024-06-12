@@ -1,10 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Context } from "./context";
 import { fetchUser, getToken } from "./api";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
 
 function Login() {
   const { auth, liveProfile } = useContext(Context); // Ensure correct destructuring
@@ -15,15 +12,16 @@ function Login() {
   const navigate = useNavigate();
 
   const submit = async () => {
+    setError(''); // Clear previous errors
     try {
       const token = await getToken({ setAccessToken: auth.setAccessToken, username, password });
-      auth.setAccessToken(token);
       console.log('Token:', token); // Check token value
+
       await fetchUser({ token, liveProfile, auth });
       console.log('Navigating to profile page');
-      navigate('/profilepage')
+      navigate('/profilepage');
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Error during login:', error);
       setError('Invalid login, please try again');
     }
   };
