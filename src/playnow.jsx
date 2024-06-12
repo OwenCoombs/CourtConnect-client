@@ -17,7 +17,11 @@ const PlayNow = () => {
             try {
                 const response = await getCourts({ auth });
                 if (response && Array.isArray(response)) {
-                    const courtsWithData = response.map(court => ({ ...court, userActive: false }));
+                    const courtsWithData = response.map(court => ({
+                        ...court,
+                        userActive: false,
+                        activeUsers: 0, // Initialize activeUsers count
+                    }));
                     setCourts(courtsWithData);
                 } else {
                     console.error('No data received for courts');
@@ -45,7 +49,11 @@ const PlayNow = () => {
             await setActiveUser(payload);
             const updatedCourts = courts.map(court => {
                 if (court.id === courtId) {
-                    return { ...court, userActive: !currentActiveStatus };
+                    return {
+                        ...court,
+                        userActive: !currentActiveStatus,
+                        activeUsers: currentActiveStatus ? court.activeUsers - 1 : court.activeUsers + 1,
+                    };
                 }
                 return court;
             });
@@ -84,6 +92,9 @@ const PlayNow = () => {
                                 >
                                     {court.userActive ? 'Leave Game' : 'Play Here!'}
                                 </button>
+                                <div className="active-users">
+                                    {court.activeUsers} {court.activeUsers === 1 ? 'active user' : 'active users'}
+                                </div>
                             </div>
                         </li>
                     ))}
@@ -94,6 +105,8 @@ const PlayNow = () => {
 };
 
 export default PlayNow;
+
+
 
 
 
